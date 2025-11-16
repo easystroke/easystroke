@@ -77,17 +77,19 @@ void XState::handle_event(XEvent &ev) {
 		return;
 
 	case ButtonPress:
-		if (verbosity >= 3)
+		if (verbosity >= 3) {
 			printf("Press (master): %d (%d, %d) at t = %ld\n", ev.xbutton.button, ev.xbutton.x, ev.xbutton.y, ev.xbutton.time);
-			H->press_master(ev.xbutton.button, ev.xbutton.time);
+		}
+		H->press_master(ev.xbutton.button, ev.xbutton.time);
 		return;
 
 	case ClientMessage:
 		if (ev.xclient.window != ping_window)
 			return;
 		if (ev.xclient.message_type == *EASYSTROKE_PING) {
-			if (verbosity >= 3)
+			if (verbosity >= 3) {
 				printf("Pong\n");
+			}
 			H->pong();
 		}
 		return;
