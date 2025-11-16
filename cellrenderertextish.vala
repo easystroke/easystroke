@@ -93,10 +93,8 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 	protected virtual void start_editing(Gdk.Event? event) {
 		Gtk.grab_add(this);
 		
-		Gdk.Device? keyboard = get_window().get_display().get_default_seat().get_keyboard();
-		if (keyboard != null) {
-			keyboard.grab(get_window(), Gdk.GrabOwnership.NONE, false, Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK, null, event != null ? event.get_time() : Gdk.CURRENT_TIME);
-		}
+		Gdk.Seat seat = get_window().get_display().get_default_seat();
+		seat.grab(get_window(), Gdk.SeatCapabilities.KEYBOARD, false, null, event, null);
 		
 		key_press_event.connect(on_key);
 	}
@@ -122,10 +120,8 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 	void on_editing_done() {
 		Gtk.grab_remove(this);
 		
-		Gdk.Device? keyboard = get_window().get_display().get_default_seat().get_keyboard();
-		if (keyboard != null) {
-			keyboard.ungrab(Gdk.CURRENT_TIME);
-		}
+		Gdk.Seat seat = get_window().get_display().get_default_seat();
+		seat.ungrab();
 	}
 }
 
