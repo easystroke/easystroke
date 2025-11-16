@@ -64,9 +64,19 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 		Gtk.Label label = new Gtk.Label(_("Key combination..."));
 		label.set_alignment(0.0f, 0.5f);
 		add(label);
-		override_background_color(Gtk.StateFlags.NORMAL, widget.get_style_context().get_background_color(Gtk.StateFlags.SELECTED));
 		label.override_color(Gtk.StateFlags.NORMAL, widget.get_style_context().get_color(Gtk.StateFlags.SELECTED));
 		show_all();
+
+	this.draw.connect((cr) => {
+		Gtk.StyleContext context = widget.get_style_context();
+		Gdk.Rectangle alloc;
+		this.get_allocation(out alloc);
+		context.save();
+		context.set_state(Gtk.StateFlags.SELECTED);
+		context.render_background(cr, alloc.x, alloc.y, alloc.width, alloc.height);
+		context.restore();
+		return false;
+	});
 	}
 
 	protected virtual void start_editing(Gdk.Event? event) {
