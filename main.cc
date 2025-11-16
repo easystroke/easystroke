@@ -110,7 +110,21 @@ public:
 		get_window()->input_shape_combine_region(Cairo::Region::create(), 0, 0);
 	}
 	static void do_move() {
-		int left = gdk_screen_width() - 10;
+		GdkDisplay *display = gdk_display_get_default();
+		GdkMonitor *monitor = display ? gdk_display_get_primary_monitor(display) : NULL;
+		GdkRectangle geometry = { 0 };
+		if (monitor)
+			gdk_monitor_get_geometry(monitor, &geometry);
+		int min_x = 0, max_x = 0;
+		int n_monitors = gdk_display_get_n_monitors(display);
+		for (int i = 0; i < n_monitors; ++i) {
+			GdkMonitor* monitor = gdk_display_get_monitor(display, i);
+			GdkRectangle geometry;
+			gdk_monitor_get_geometry(monitor, &geometry);
+			if (i == 0 || geometry.x < min_x) min_x = geometry.x;
+			if (i == 0 || geometry.x + geometry.width > max_x) max_x = geometry.x + geometry.width;
+		}
+		int left = max_x - min_x - 10;
 		for (std::list<OSD *>::iterator i = osd_stack.begin(); i != osd_stack.end(); i++) {
 			left -= (*i)->w + 30;
 			(*i)->move(left, 40);

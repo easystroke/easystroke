@@ -46,11 +46,23 @@ void Popup::invalidate(int x1, int y1, int x2, int y2) {
 }
 
 Composite::Composite() {
-#define N 128
-	int w = gdk_screen_width();
-	int h = gdk_screen_height();
-	num_x = (gdk_screen_width()  - 1)/N + 1;
-	num_y = (gdk_screen_height() - 1)/N + 1;
+	#define N 128
+	GdkDisplay* display = gdk_display_get_default();
+	int min_x = 0, min_y = 0, max_x = 0, max_y = 0;
+	int n_monitors = gdk_display_get_n_monitors(display);
+	for (int i = 0; i < n_monitors; ++i) {
+	    GdkMonitor* monitor = gdk_display_get_monitor(display, i);
+	    GdkRectangle geometry;
+	    gdk_monitor_get_geometry(monitor, &geometry);
+	    if (i == 0 || geometry.x < min_x) min_x = geometry.x;
+	    if (i == 0 || geometry.y < min_y) min_y = geometry.y;
+	    if (i == 0 || geometry.x + geometry.width > max_x) max_x = geometry.x + geometry.width;
+	    if (i == 0 || geometry.y + geometry.height > max_y) max_y = geometry.y + geometry.height;
+	}
+	int w = max_x - min_x;
+	int h = max_y - min_y;
+	num_x = (w  - 1)/N + 1;
+	num_y = (h - 1)/N + 1;
 	pieces = new Popup**[num_x];
 	for (int i = 0; i < num_x; i++) {
 		pieces[i] = new Popup*[num_y];

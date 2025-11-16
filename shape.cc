@@ -21,8 +21,20 @@
 #include <X11/extensions/shape.h>
 
 Shape::Shape() {
-	int w = gdk_screen_width();
-	int h = gdk_screen_height();
+	GdkDisplay* display = gdk_display_get_default();
+	int min_x = 0, min_y = 0, max_x = 0, max_y = 0;
+	int n_monitors = gdk_display_get_n_monitors(display);
+	for (int i = 0; i < n_monitors; ++i) {
+		GdkMonitor* monitor = gdk_display_get_monitor(display, i);
+		GdkRectangle geometry;
+		gdk_monitor_get_geometry(monitor, &geometry);
+		if (i == 0 || geometry.x < min_x) min_x = geometry.x;
+		if (i == 0 || geometry.y < min_y) min_y = geometry.y;
+		if (i == 0 || geometry.x + geometry.width > max_x) max_x = geometry.x + geometry.width;
+		if (i == 0 || geometry.y + geometry.height > max_y) max_y = geometry.y + geometry.height;
+	}
+	int w = max_x - min_x;
+	int h = max_y - min_y;
 	Gdk::Color col = prefs.color.get().color;
 	unsigned long bg = ((col.get_red()/257)<<16) + ((col.get_green()/257)<<8) + col.get_blue()/257;
 	win = XCreateSimpleWindow(dpy, ROOT, 0, 0, w, h, 0, CopyFromParent, bg);
