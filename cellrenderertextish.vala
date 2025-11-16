@@ -92,13 +92,12 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 
 	protected virtual void start_editing(Gdk.Event? event) {
 		Gtk.grab_add(this);
-		Gdk.keyboard_grab(get_window(), false, event != null ? event.get_time() : Gdk.CURRENT_TIME);
-
-/*
-		Gdk.DeviceManager dm = get_window().get_display().get_device_manager();
-		foreach (Gdk.Device dev in dm.list_devices(Gdk.DeviceType.SLAVE))
-			Gtk.device_grab_add(this, dev, true);
-*/
+		
+		Gdk.Device? keyboard = get_window().get_display().get_default_seat().get_keyboard();
+		if (keyboard != null) {
+			keyboard.grab(get_window(), Gdk.GrabOwnership.NONE, false, Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK, null, event != null ? event.get_time() : Gdk.CURRENT_TIME);
+		}
+		
 		key_press_event.connect(on_key);
 	}
 
@@ -122,13 +121,11 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 	}
 	void on_editing_done() {
 		Gtk.grab_remove(this);
-		Gdk.keyboard_ungrab(Gdk.CURRENT_TIME);
-
-/*
-		Gdk.DeviceManager dm = get_window().get_display().get_device_manager();
-		foreach (Gdk.Device dev in dm.list_devices(Gdk.DeviceType.SLAVE))
-			Gtk.device_grab_remove(this, dev);
-*/
+		
+		Gdk.Device? keyboard = get_window().get_display().get_default_seat().get_keyboard();
+		if (keyboard != null) {
+			keyboard.ungrab(Gdk.CURRENT_TIME);
+		}
 	}
 }
 
