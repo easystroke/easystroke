@@ -68,12 +68,12 @@ template<class Archive> void PrefDB::serialize(Archive & ar, const unsigned int 
 	}
 	ar & button.unsafe_ref();
 	if (version < 2) {
-		bool help;
+		bool help = false;
 		ar & help;
 	}
 	ar & trace.unsafe_ref();
 	if (version < 3) {
-		int delay;
+		int delay = 0;
 		ar & delay;
 	}
 	if (version == 1) {
