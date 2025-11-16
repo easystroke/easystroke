@@ -57,6 +57,10 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 	new CellRendererTextish parent;
 	new string path;
 
+	public static string color_to_css(Gdk.RGBA c) {
+		return "rgba(" + ((int)(c.red*255)).to_string() + "," + ((int)(c.green*255)).to_string() + "," + ((int)(c.blue*255)).to_string() + "," + c.alpha.to_string() + ")";
+	}
+
 	public CellEditableAccel(CellRendererTextish parent, string path, Gtk.Widget widget) {
 		this.parent = parent;
 		this.path = path;
@@ -64,19 +68,26 @@ class CellEditableAccel : Gtk.EventBox, Gtk.CellEditable {
 		Gtk.Label label = new Gtk.Label(_("Key combination..."));
 		label.set_alignment(0.0f, 0.5f);
 		add(label);
-		label.override_color(Gtk.StateFlags.NORMAL, widget.get_style_context().get_color(Gtk.StateFlags.SELECTED));
+		label.get_style_context().add_class("selected-label");
+		Gtk.CssProvider css = new Gtk.CssProvider();
+		try {
+			css.load_from_data(".selected-label { color: " + CellEditableAccel.color_to_css(widget.get_style_context().get_color(Gtk.StateFlags.SELECTED)) + "; }");
+		} catch (Error e) {
+			warning("Failed to load CSS: %s", e.message);
+		}
+		label.get_style_context().add_provider(css, Gtk.STYLE_PROVIDER_PRIORITY_USER);
 		show_all();
 
-	this.draw.connect((cr) => {
-		Gtk.StyleContext context = widget.get_style_context();
-		Gdk.Rectangle alloc;
-		this.get_allocation(out alloc);
-		context.save();
-		context.set_state(Gtk.StateFlags.SELECTED);
-		context.render_background(cr, alloc.x, alloc.y, alloc.width, alloc.height);
-		context.restore();
-		return false;
-	});
+		this.draw.connect((cr) => {
+			Gtk.StyleContext context = widget.get_style_context();
+			Gdk.Rectangle alloc;
+			this.get_allocation(out alloc);
+			context.save();
+			context.set_state(Gtk.StateFlags.SELECTED);
+			context.render_background(cr, alloc.x, alloc.y, alloc.width, alloc.height);
+			context.restore();
+			return false;
+		});
 	}
 
 	protected virtual void start_editing(Gdk.Event? event) {
@@ -140,4 +151,3 @@ class CellEditableCombo : Gtk.ComboBoxText, Gtk.CellEditable {
 		show_all();
 	}
 }
-
