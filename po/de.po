@@ -1,3 +1,4 @@
+# Deutsche Übersetzung
 # German translation of eaystroke.
 # Copyright (C) 2008-2009 ThJaeger@gmail.com
 # This file is distributed under the same license as the easystroke package.
@@ -6,11 +7,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: easystroke 0.3.97\n"
+"Project-Id-Version: easystroke c5c256\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-14 00:24-0400\n"
 "PO-Revision-Date: 2012-09-10 17:51+0000\n"
-"Last-Translator: Maximilian Mühlbauer <Unknown>\n"
+"Last-Translator: schrmh <Unknown>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -56,8 +57,8 @@ msgid ""
 "directory and that you have write access to it.  You can change the "
 "configuration directory using the -c or --config-dir command line options."
 msgstr ""
-"Konnte %1 nicht speichern.  Stellen sie sicher, dass \"%2\" ein Verzeichnis "
-"ist und dass Sie Schreibzugriff darauf haben.  Sie können das "
+"Konnte %1 nicht speichern.  Stelle sicher, dass \"%2\" ein Verzeichnis "
+"ist und dass du Schreibzugriff darauf hast.  Du kannst das "
 "Konfigurationsverzeichnis mit den Kommandozeilenoptionen -c oder --config-"
 "dir verändern."
 
@@ -104,12 +105,12 @@ msgid "Actions"
 msgstr "Aktionen"
 
 msgid "Action \"%1\" is about to be deleted."
-msgstr "Wenn Sie fortfahren, wird die Aktion \"%1\" gelöscht."
+msgstr "\"%1\"-Aktion wirklich entfernen?"
 
 msgid "One action is about to be deleted."
 msgid_plural "%1 actions are about to be deleted"
-msgstr[0] "Wenn Sie fortfahren, wird eine Aktion gelöscht."
-msgstr[1] "Wenn Sie fortfahren, werden %1 Aktionen gelöscht."
+msgstr[0] "Eine Aktion ist im Begriff, entfernt zu werden."
+msgstr[1] "%1 Aktionen sind im Begriff, entfernt zu werden."
 
 msgid "Delete an Action"
 msgid_plural "Delete Actions"
@@ -117,7 +118,7 @@ msgstr[0] "Eine Aktion löschen"
 msgstr[1] "Aktionen löschen"
 
 msgid "%1 \"%2\" (containing %3 %4) is about to be deleted."
-msgstr "Wenn Sie fortfahren, wird %1 \"%2\" (mitsamt %3 %4) gelöscht."
+msgstr "%1 \"%2\" (enthält %3 %4) sind im Begriff, entfernt zu werden."
 
 msgid "The application"
 msgstr "die Anwendung"
@@ -143,9 +144,9 @@ msgid ""
 "You are about to bind an action to a single click.  This might make it "
 "difficult to use Button %1 in the future.  Are you sure you want to continue?"
 msgstr ""
-"Sie sind dabei, eine Aktion einem einzelnen Klick zuzuordnen.  Dies könnte "
-"Schwierigkeiten bereiten, Maustaste %1 zu benutzen.  Sind Sie sich sicher, "
-"dass Sie fortfahren möchten?"
+"Du bist dabei, eine Aktion einem einzelnen Klick zuzuordnen.  Dies könnte "
+"es schwierig machen, Maustaste %1 zu benutzen.  Bist du dir sicher, "
+"dass du fortfahren möchtest?"
 
 msgid "Record a New Stroke"
 msgstr "Eine neue Geste aufnehmen"
@@ -154,9 +155,8 @@ msgid ""
 "The next stroke will be associated with the action \"%1\".  You can draw it "
 "anywhere on the screen (except for the two buttons below)."
 msgstr ""
-"Die nächste Geste wird mit der Aktion \"%1\" assoziert.  Sie können sie an "
-"beliebiger Position auf dem Bildschirm (mit Ausnahme der beiden "
-"Schaltflächen) erstellen."
+"Die nächste Geste wird mit der Aktion \"%1\" assoziert.  Du kannst sie an "
+"beliebiger Position auf dem Bildschirm abseits der Buttons dieses Dialoges erstellen."
 
 msgid "Gesture %1"
 msgstr "Geste %1"
@@ -168,10 +168,10 @@ msgid "(Instantly) "
 msgstr "(Sofort) "
 
 msgid "(Click & Hold) "
-msgstr "(Click & Hold) "
+msgstr "(Klicken & Halten) "
 
 msgid "Any Modifier"
-msgstr "Beliebiger Modfier"
+msgstr "Beliebiger Modifikator"
 
 msgid "Button %1"
 msgstr "Maustaste %1"
@@ -187,31 +187,31 @@ msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
 msgid "Tray icon disabled"
-msgstr "Tray-Symbol deaktiviert"
+msgstr "Benachrichtigungssymbol deaktiviert"
 
 msgid ""
 "To bring the configuration dialog up again, you should define an action of "
 "type Misc...Show/Hide."
 msgstr ""
-"Um den Konfigurationsdialog wieder anzuzeigen, können Sie eine Aktion vom "
-"Typ Verschiedene..Anzeigen/Verstecken erstellen."
+"Um den Konfigurationsdialog wieder anzuzeigen, erstelle eine Aktion vom "
+"Typ \"Verschiedene..Anzeigen/Verstecken\"."
 
 #, c-format
 msgid "Warning: No action \"%s\" defined\n"
 msgstr "Warnung: Aktion \"%s\" nicht definiert\n"
 
 msgid "Enabled"
-msgstr "Aktiv"
+msgstr "Bereit"
 
 msgid "About"
 msgstr "Über"
 
 msgid "Quit"
-msgstr "Schließen"
+msgstr "Beenden"
 
 #, c-format
 msgid "Couldn't open display.\n"
-msgstr "Konnte Verbindung zum Server nicht herstellen.\n"
+msgstr "Konnte Verbindung zum Display-Server nicht herstellen.\n"
 
 #, c-format
 msgid "Error: Couldn't create configuration directory \"%s\"\n"
@@ -236,7 +236,7 @@ msgid "XShape"
 msgstr "XShape"
 
 msgid "Annotate (compiz)"
-msgstr "Annotate (compiz)"
+msgstr "Annotieren (compiz)"
 
 msgid "Fire (compiz)"
 msgstr "Feuer (compiz)"
@@ -245,7 +245,7 @@ msgid "Water (compiz)"
 msgstr "Wasser (compiz)"
 
 msgid "Timeout Off"
-msgstr "Timeout Aus"
+msgstr "Timeout aus"
 
 msgid "Conservative"
 msgstr "Konservativ"
@@ -284,20 +284,20 @@ msgid ""
 "Please place your mouse or pen in the box below and press the button that "
 "you want to select.  You can also hold down additional modifiers."
 msgstr ""
-"Drücken Sie auf die entsprechende Taste, während sich der Mauszeiger in der "
-"Box befindet.  Sie können auch zusätzlich Modifier drücken."
+"Wähle und drücke eine Taste, während sich der Mauszeiger in der "
+"Box befindet.  Du kannst dabei zusätzlich Modifikatoren gedrückt halten."
 
 msgid "Score"
-msgstr "Ergebnis"
+msgstr "Genauigkeit"
 
 msgid "D_isabled"
 msgstr "Deaktiviert"
 
 msgid "<unnamed>"
-msgstr ""
+msgstr "<unbenannt>"
 
 msgid "Connection to DBus failed"
-msgstr "Verbindung zum DBus fehlgeschlagen"
+msgstr "Verbindung zu DBus fehlgeschlagen"
 
 msgid "_Delete Current"
 msgstr "Geste löschen"
@@ -309,10 +309,10 @@ msgid "Timeout"
 msgstr "Timeout"
 
 msgid "Instant Gestures"
-msgstr "Sofortige Gesten"
+msgstr "Sofort"
 
 msgid "Click & Hold"
-msgstr "Click & Hold"
+msgstr "Klicken & Halten"
 
 msgid "_Control"
 msgstr "Strg"
@@ -327,11 +327,11 @@ msgid "S_uper"
 msgstr "Super"
 
 msgid "An_y Modifier"
-msgstr "Beliebiger Modifier"
+msgstr "Beliebiger Modifikator"
 
 msgid "Alternatively, you may select button and modifiers below."
 msgstr ""
-"Alternativ können sie Maustaste und Modifiers weiter unten auswählen."
+"Alternativ kannst du Maustaste und Modifikatoren weiter unten auswählen."
 
 msgid "Show deleted rows"
 msgstr "Zeige gelöschte Zeilen"
@@ -357,6 +357,9 @@ msgstr "Geste aufnehmen"
 msgid "_Add Action"
 msgstr "Aktion hinzufügen"
 
+msgid "_Duplicate Action(s)"
+msgstr "Aktion(en) klonen"
+
 msgid "_Delete Action(s)"
 msgstr "Aktion(en) löschen"
 
@@ -364,13 +367,13 @@ msgid "_Hide"
 msgstr "Verstecken"
 
 msgid "_Gesture Button"
-msgstr "Gesten-Maustaste"
+msgstr "Gesten-Trigger"
 
 msgid "Additional Buttons"
-msgstr "Zusätzliche Maustasten"
+msgstr "Zusätzliche Tasten"
 
 msgid "Initial Timeout (ms)"
-msgstr "Anfängliches Timeout (ms)"
+msgstr "Initiales Timeout (ms)"
 
 msgid "     Timeout (ms)"
 msgstr "     Timeout (ms)"
@@ -388,22 +391,22 @@ msgid "Width"
 msgstr "Breite"
 
 msgid "Show popups ("
-msgstr "Popus anzeigen ("
+msgstr "Zeige Pop-ups ("
 
 msgid "to the right of the cursor)"
-msgstr ""
+msgstr "rechts vom Mauszeiger)"
 
 msgid "Show tray icon"
-msgstr "Zeige Tray-Symbol"
+msgstr "Zeige Benachrichtigungssymbol"
 
 msgid "Show last gesture in tray"
-msgstr "Zeige die letzte Geste im Tray"
+msgstr "Zeige die letzte Geste im Benachrichtigungsbereich"
 
 msgid "Autostart easystroke"
 msgstr "Automatisch starten"
 
 msgid "<b>Appearance</b>"
-msgstr "<b>Erscheinung</b>"
+msgstr "<b>Erscheinungs­bild</b>"
 
 msgid "<b>Exceptions</b>"
 msgstr "<b>Ausnahmen</b>"
@@ -412,13 +415,13 @@ msgid "_Add Exception"
 msgstr "Ausnahme hinzufügen"
 
 msgid "_Remove Exception"
-msgstr "Ausnahme Entfernen"
+msgstr "Ausnahme entfernen"
 
 msgid "Preferences"
 msgstr "Einstellungen"
 
 msgid "Only enable easystroke for applications listed on 'Actions' tab"
-msgstr ""
+msgstr "easystroke nur für Anwendungen im 'Aktionen'-Tab aktivieren"
 
 msgid "Timeout Gestures"
 msgstr "Timeout-Gesten"
@@ -430,10 +433,10 @@ msgid "(See Documentation)"
 msgstr "(Siehe die Dokumentation)"
 
 msgid "Show popups on advanced gestures"
-msgstr "Popups bei Advanced Gestures anzeigen"
+msgstr "Pop-Ups bei erweiterten Gesten anzeigen"
 
 msgid "Show OSD"
-msgstr "OSD anzeigen"
+msgstr "On-Screen-Display (OSD) anzeigen"
 
 msgid "Invert Scroll Direction"
 msgstr "Scroll-Richtung invertieren"
@@ -442,13 +445,10 @@ msgid "Scroll Speed"
 msgstr "Scrollgeschwindigkeit"
 
 msgid "Move the cursor back to the original position after each gesture"
-msgstr ""
-"Bewegen Sie den Mauszeiger nach einer Geste zurück in die Ausgangsposition"
+msgstr "Bewege den Mauszeiger nach einer Geste zurück in die Ausgangsposition"
 
 msgid "Stay in 'scroll' and 'ignore' mode as long as the pen is within range"
-msgstr ""
-"Bleibe im 'Scrollen' oder 'Ignorieren' Modus solange der Stift in Reichweite "
-"ist"
+msgstr "Bleibe im Modus 'Scrollen' oder 'Ignorieren' solange der Stift in Reichweite ist"
 
 msgid "<b>Tablet Options</b>"
 msgstr "<b>Tablet-Optionen</b>"
@@ -466,7 +466,7 @@ msgid "_History"
 msgstr "Verlauf"
 
 msgid "Easystroke Gesture Recognition"
-msgstr "Easystroke Gestenerkennung"
+msgstr "easystroke-Gestenerkennung"
 
 msgid "Control your desktop using mouse gestures"
 msgstr "Den Rechner mit Mausgesten bedienen"
@@ -485,7 +485,7 @@ msgstr "Deaktivieren"
 
 #, c-format
 #~ msgid "Error: A grab failed.  Resetting...\n"
-#~ msgstr "Fehler: Ein Grab ist fehlgeschlagen.  Breche Geste ab...\n"
+#~ msgstr "Fehler: Maus- oder Tastatur-Reservierung (Grab) ist fehlgeschlagen.  Breche Geste ab...\n"
 
 #~ msgid "optimize for left-handed operation )"
 #~ msgstr "für linkshändige Bedienung optimieren )"
