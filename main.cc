@@ -70,7 +70,6 @@ static Trace *init_trace() {
 			case TraceNone:
 				return new Trivial();
 			case TraceShape:
-			case TraceDefault:
 				return new Shape();
 			case TraceAnnotate:
 				return new Annotate();
