@@ -394,7 +394,6 @@ void App::on_activate() {
 	unsetenv("DESKTOP_AUTOSTART_ID");
 
 	signal(SIGINT, &sig_int);
-	signal(SIGCHLD, SIG_IGN);
 
 	dpy = XOpenDisplay(nullptr);
 	if (!dpy) {
